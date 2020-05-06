@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+  <link href='./../assets/stylesheets/project.css' rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type="text/css"/>
+    <script src="./../assets/scripts/jquery.min.js"></script>
+    <script src="./../assets/scripts/script.js"></script>
+<!-- Adding a commit to push to gitLab!-->
+</head>
+
+<body>
+  <%- include ('./navbar'); -%>
+  <article>
+
+      <div class="w3-container">
+          <!-- Category page for 2 items !-->
+          <div class="category">
+                <b>Categories: </b>
+                <select name="itemCategory" id="itemCategory" onchange="return selCategory(this.value);">
+                    <option value="">All</option>
+                    <option value="1">Fast Food - Chicken </option>
+                    <option value="2">Fast Food - Burgers, Chicken, Salads</option>
+                    <option value="3">Fast Food - Mexican, American Chinese, Acai Bowls </option>
+                    <option value="4">Coffee/Bakery</option>
+                    <option value="5">Pizza</option>
+                    <option value="6">Sandwich</option>
+                </select>
+          </div>
+      </div>
+
+      <!-- 4 items per category !-->
+      <!-- Fast Food - Chicken  !-->
+      <section>
+
+            <div class="row">
+                <div class="column  item1" style="display: block;">
+                  <img src="./../assets/images/logo_chickfila.png" style="width: 50%">
+                    <div class="producttitle">Chick-fil-A</div>
+                    <div class="productprice">
+                      <div class="pull-right">
+                        <!-- This button will take the user to the menu-->
+                        <form method="post" action="/menuButton">
+                          <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Chick-fil-A">
+                        </form>
+                        <!-- This button will take the user to the reviews-->
+                        <form method="post" action="/reviewsButton">
+                          <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Chick-fil-A">
+                        </form>
+                        <!-- This button will take the user to the add review form-->
+                        <form method="post" action="/reviewButton">
+                          <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Chick-fil-A">
+                        </form>
+                        <!-- This button will add a favorite and take the user to their favorites-->
+                        <form method="post" action="/favoriteButton">
+                          <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Chick-fil-A">
+                        </form>
+                      </div></div>
+                </div>
+
+                  <div class=" column item1" style="display: block;">
+                     <img src="./../assets/images/logo_bojangles.png">
+                      <div class="producttitle">Bojangles</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bojangles">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bojangles">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bojangles">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bojangles">
+                          </form>
+                        </div></div>
+                  </div>
+
+
+          <!-- Burgers, Chicken, Salads - Fast Food!-->
+                  <div class="column item2" style="display: block;">
+                      <img src="./../assets/images/logo_wendys.png">
+                      <div class="producttitle">Wendy's</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Wendy's">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Wendy's">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Wendy's">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Wendy's">
+                          </form>
+                        </div>
+                      </div>
+                  </div>
+
+
+                  <div class="column item2" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/FortyNinerDiner_logoWeb.png" width="" height=""></a>
+                      <div class="producttitle">Forty-Niner Diner</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Forty-Niner Diner">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Forty-Niner Diner">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Forty-Niner Diner">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Forty-Niner Diner">
+                          </form>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class=" column  item2" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_bistro-49.png" width="" height=""></a>
+                      <div class="producttitle">Bistro 49</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bistro 49">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bistro 49">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bistro 49">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Bistro 49">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class=" column  item2" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_den.png" width="" height=""></a>
+                      <div class="producttitle">The Den by Denny's</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="The Den by Denny's">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="The Den by Denny's">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="The Den by Denny's">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="The Den by Denny's">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+          <!-- Fast Food - Mexican, American Chinese, Acai Bowls  !-->
+
+                  <div class="column  item3" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_salsaritas.png" width="" height=""></a>
+                      <div class="producttitle">Salsarita's</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Salsarita's">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Salsarita's">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Salsarita's">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Salsarita's">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="column  item3" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/sambazon.jpg" width="" height=""></a>
+                      <div class="producttitle">Sambazon</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Sambazon">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Sambazon">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Sambazon">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Sambazon">
+                          </form>
+                        </div>
+                      </div>
+                   </div>
+
+                  <div class="column  item3" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_panda-express.png" width="" height=""></a>
+                      <div class="producttitle">Panda Express</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Panda Express">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Panda Express">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Panda Express">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Panda Express">
+                          </form>
+                        </div></div>            </div>
+
+                  <div class="column  item6" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/mondosubs.jpg" width="" height=""></a>
+                      <div class="producttitle">Mondo Subs</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Mondo Subs">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Mondo Subs">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Mondo Subs">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Mondo Subs">
+                          </form>
+                        </div></div>            </div>
+
+
+
+          <!-- Coffee places / Bakery !-->
+                  <div class="column  item4" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_starbucks.png" width="" height=""></a>
+                      <div class="producttitle">Starbucks</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Starbucks">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Starbucks">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Starbucks">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Starbucks">
+                          </form>
+                        </div></div>            </div>
+
+                  <div class="column  item4" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_fretwell-cafe.png" width="" height=""></a>
+                      <div class="producttitle">Fretwell Cafe</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Fretwell Cafe">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Fretwell Cafe">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Fretwell Cafe">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Fretwell Cafe">
+                          </form>
+                        </div></div>            </div>
+
+                  <div class="column  item4" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/logo_library-cafe.png" width="" height=""></a>
+                      <div class="producttitle">Library Cafe</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Library Cafe">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Library Cafe">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Library Cafey">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Library Cafe">
+                          </form>
+                        </div></div>            </div>
+
+                  <div class="column  item4" style="display: block;">
+                      <a href="#"> <img src="./../assets/images/einsteins.png" width="" height=""></a>
+                      <div class="producttitle">Einstein Bros. Bagels</div>
+                      <div class="productprice">
+                        <div class="pull-right">
+                          <form method="post" action="/menuButton">
+                            <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Einstein Bros. Bagels">
+                          </form>
+                          <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Einstein Bros. Bagels">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Einstein Bros. Bagels">
+                          </form>
+                          <form method="post" action="/favoriteButton">
+                            <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Einstein Bros. Bagels">
+                          </form>
+                        </div></div>            </div>
+
+          <!-- Pizza options!-->
+                <div class="column  item5" style="display: block;">
+                    <a href="#"> <img src="./../assets/images/dominos_logoWeb150px_0.png" width="" height=""></a>
+                    <div class="producttitle">Dominos</div>
+                    <div class="productprice">
+                      <div class="pull-right">
+                        <form method="post" action="/menuButton">
+                          <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Dominos">
+                        </form>
+                        <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Dominos">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Dominos">
+                          </form>
+                        <form method="post" action="/favoriteButton">
+                          <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Dominos">
+                        </form>
+                      </div></div>          </div>
+
+                <div class="column  item5" style="display: block;">
+                    <a href="#"> <img src="./../assets/images/logo_mamma-leones.png" width="" height=""></a>
+                    <div class="producttitle">Mamma Leone's</div>
+                    <div class="productprice">
+                      <div class="pull-right">
+                        <form method="post" action="/menuButton">
+                          <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Mamma Leone's">
+                        </form>
+                        <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Mamma Leone's">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Mamma Leone's">
+                          </form>
+                        <form method="post" action="/favoriteButton">
+                          <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Mamma Leone's">
+                        </form>
+                      </div></div>          </div>
+
+          <!-- Sandwiches!-->
+                <div class="column  item6" style="display: block;">
+                    <a href="#"> <img src="./../assets/images/SUBWAYLOGOcopy.png" width="" height=""></a>
+                    <div class="producttitle">Subway</div>
+                    <div class="productprice">
+                      <div class="pull-right">
+                        <form method="post" action="/menuButton">
+                          <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Subway">
+                        </form>
+                        <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Subway">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Subway">
+                          </form>
+                        <form method="post" action="/favoriteButton">
+                          <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Subway">
+                        </form>
+                      </div></div>          </div>
+
+                <div class="column  item6" style="display: block;">
+                    <a href="#"> <img src="./../assets/images/E+BWeb150px.png" width="" height=""></a>
+                    <div class="producttitle">Erbert and Gerbert</div>
+                    <div class="productprice">
+                      <div class="pull-right">
+                        <form method="post" action="/menuButton">
+                          <input type="submit" value="Menu" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Erbert and Gerbert">
+                        </form>
+                        <form method="post" action="/reviewsButton">
+                            <input type="submit" value="Reviews" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Erbert and Gerbert">
+                          </form>
+                          <form method="post" action="/reviewButton">
+                            <input type="submit" value="Add Review" class="btn btn-danger btn-sm">
+                            <input type="hidden" name="name" value="Erbert and Gerbert">
+                          </form>
+                        <form method="post" action="/favoriteButton">
+                          <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                          <input type="hidden" name="name" value="Erbert and Gerbert">
+                        </form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+      </section>
+
+  </article>
+    <%- include ('./footer'); -%>
+</body>
+
+</html>

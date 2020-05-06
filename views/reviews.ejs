@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+      <title><%= session.restaurant%> Reviews</title>
+  </head>
+
+  <body>
+    <%- include ('./navbar'); -%>
+      <main>
+        </div>
+        <h3><%= session.restaurant%> Reviews</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Experience</th>
+                    <th>Wait Time</th>
+                    <th>Order</th>
+                    <th>Money Spent</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+              <!-- This for loop will loop until it each review for the current restaurant has been displayed-->
+              <%for(let i = 0; i < session.reviews.length; i++) {
+                <!-- This if statment ensures the reviews are for the current restaurant-->
+                if(session.restaurant == session.reviews[i].restaurant){%>
+            <tr>
+                <td> <%= session.reviews[i].username %> </td>
+                <td> <%= session.reviews[i].exp %> </td>
+                <td> <%= session.reviews[i].wait %> </td>
+                <td> <%= session.reviews[i].order %> </td>
+                <td> $<%= session.reviews[i].spent %> </td>
+                <td> <%= session.reviews[i].rating %>/5</td>
+            </tr>
+            <% }} %>
+            </tbody>
+          </table>
+          <!-- Displays the average numerical values in a separate table below-->
+          <table>
+            <tr>
+              <th>Average Wait: <%= session.averages.waitAvg %> min</th>
+              <th>Average Spent: $<%= session.averages.spentAvg %></th>
+              <th>Average Rating: <%= session.averages.ratingAvg %>/5</th>
+            </tr>
+          </table>
+        </div>
+
+    </main>
+    <%- include ('./footer'); -%>
+  </body>
+</html>

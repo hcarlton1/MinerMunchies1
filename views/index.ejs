@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Miner Munchies</title>
+    <!-- Links my css style sheet to this html page -->
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+</head>
+
+<body>
+  <%- include ('./navbar'); -%>
+
+<!-- Main content for the page -->
+<section>
+  <div class="w3-container w3-row-padding w3-center w3-margin-top"  id="about">
+    <h2 class="w3-center">What Are You in the Mood For?</h2>
+    <p>Miner Munchies supplies our users with a list of all places that food is for sale on UNC Charlotte Campus</p>
+    <a name="home"></a>
+    <div class="w3-row-padding w3-center" style="margin-top:64px;">
+      <div class="w3-third">
+        <div class="w3-card w3-container">
+          <h2 style="text-decoration:underline; font-family: typewriter;">RESTAURANTS</h2>
+          <ul class="w3-ul w3-white">
+            <p>List of restaurants, catagorized by food served. Ability to view menus and provide feedback.</p>
+            <img src="./../assets/images/food.png" style="width:22rem;" alt="food">
+            <li><a href="./restaurants"><button class="w3-button w3-black"> Click Here </button></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="w3-card w3-container">
+          <h2 style="text-decoration:underline; font-family: typewriter;">VENDING</h2>
+          <ul class="w3-ul w3-white">
+            <p>List of vending machines on campus and directions to each.</p>
+            <img src="./../assets/images/vending.jpg" style="width: 23rem;" alt="vending">
+            <li><a href="./vending"><button class="w3-button w3-black"> Click Here </button></a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="w3-third">
+        <div class="w3-card w3-container">
+          <h2 style="text-decoration:underline; font-family: typewriter;">CAMPUS DINING MAP</h2>
+          <ul class="w3-ul w3-white">
+            <p>Campus map showing the locations of restaurants, dining halls, and vending machines. </p><img src="./../assets/images/schoolmap.png" style="width: 23rem;" alt="map">
+            <li><a href="./map"><button class="w3-button w3-black"> Click Here </button></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+  <%- include ('./footer'); -%>
+</body>

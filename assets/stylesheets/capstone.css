@@ -1,0 +1,345 @@
+/*Makes the background of the whole site gray and sets display to flex*/
+body{
+    background-color: white;
+}
+form{
+  display: inline;
+}
+/*Sets body height to 100%*/
+html, body {
+    height: 100%;
+}
+
+/*Adds whitespace at the top and bottom of the main and changes the font for all of its elements*/
+main{
+    padding-top: 10px;
+    padding-bottom: 50px;
+    font-family: "Circular Std";
+}
+header{
+    background-color: black;
+    margin-bottom: 5%;
+}
+
+/*Formats navbar list*/
+header ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    border-bottom: white;
+}
+/*Adds float and borders to li in the navbar*/
+header ul li {
+    float: left;
+    border-right: 0.5px solid lightgray;
+    border-left: 0.5px solid lightgray;
+}
+/*Formats navbar links*/
+header ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: large;
+    font-family: "Times New Roman";
+}
+/*Makes links cyan*/
+main a:link{
+    color:darkgreen;
+}
+/*Makes visited links dark cyan*/
+main a:visited{
+    color:darkgreen;
+}
+
+/*Moves validation links in the footer to the left*/
+footer a{
+    display: block;
+}
+/*Formats the h3 headings that are at the top of each page*/
+h3{
+    font-family: "Circular Std";
+    text-align: center;
+    color: darkgreen;
+    font-size: 40px;
+    text-shadow: -1px 0 gold, 0 1px gold, 1px 0 gold, 0 -1px gold;
+    position: relative;
+}
+
+/*Class that is added to the current page's navbar link to show current position*/
+.active{
+    background-color: lightgray;
+    color: black;
+    border-bottom: 0.5px solid black;
+    border-top: 0.5px solid black;
+}
+
+/* Add a cyan background color to navbar links on hover */
+header a:hover{
+    background-color: darkgreen;
+    color: black;
+}
+.bigPic{
+  position:relative;
+  width: 80%;
+  height: auto;
+}
+.capital{
+  text-transform: capitalize;
+}
+.center{
+  text-align: center;
+}
+.column{
+  display: block;
+}
+.error{
+  color: red;
+}
+/*Makes the footer stick to the bottom of the page*/
+.footer {
+    flex-shrink: 0;
+    position:fixed;
+    bottom:0;
+    right: 0;
+    background-color: black;
+    width: 100%;
+}
+
+/*Makes validation links cyan*/
+.footer a:link{
+    color: darkgreen;
+}
+.footer a:visited{
+    color: darkgreen;
+}
+.reviewForm{
+  text-align: center;
+  margin-left: 45%;
+  margin-right: 45%;
+
+}
+.reviewForm label{
+  text-align: center;
+  margin: 0 auto;
+}
+.reviewForm textarea, .reviewForm input{
+  border: 1px solid black;
+  margin: 0 auto;
+  float:right;
+}
+.reviewForm textarea{
+  width: 200px;
+}
+.reviewForm input[type=number]{
+  width:40px;
+}
+.reviewForm input[type=text]{
+  width:150px;
+}
+
+.reviewHeader{
+  text-align: center;
+}
+
+.right{
+    float: right;
+}
+.userNav{
+    border-bottom: 1px solid lightgray;
+}
+.vendTableContainer{
+  padding-bottom: 10px;
+}
+.vendingTables{
+  margin-left: 33%;
+  width: 66%;
+  position: relative;
+  float: right;
+}
+#vendMap{
+height: 400px;
+width:auto;
+float:left;
+position:fixed;
+margin-right: 66%;
+}
+.formWrapper{
+    width: 25%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 60px;
+}
+form input[type=text], form input[type=email], form input[type=password]{
+  float: right;
+  width: 50%;
+  padding: 5px 5px;
+}
+
+#userPic{
+    width: 200px;
+    height: auto;
+    float: left;
+}
+.connectionInfo{
+    position: relative;
+    left: 150px;
+    width: 40%;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px 10px;
+}
+
+.connectionInfo p, .connectionInfo h1{
+    position: relative;
+    left: 50px;
+}
+
+
+.buttons{
+    position: relative;
+    float: right;
+    margin: 100px;
+}
+
+.buttons button{
+    padding: 10px 20px;
+}
+.buttons button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#btn1{
+    background-color: darkgreen;
+}
+
+#btn2{
+    background-color: red;
+}
+
+#btn3{
+    background-color: deepskyblue;
+}
+
+table{
+    width: 80%;
+    margin: 0 auto;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 10px 50px;
+    background-color: white;
+}
+td h1{
+    text-align: center;
+}
+
+td ul{
+    list-style-position: inside;
+    left: 100px;
+}
+
+#logo{
+    width: auto;
+    height: 49px;
+}
+
+.textWrapper{
+    background-color: white;
+    position: relative;
+    width: 40%;
+    left: 100px;
+    border: 1px solid black;
+    padding: 10px 10px;
+    float: left;
+}
+
+.imgWrapper{
+    text-align: center;
+}
+
+.imgWrapper img{
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.btn {
+    color: white;
+    background-color: black;
+    padding:10px 10px;
+    border-radius: 5px;
+}
+
+.btnLink{
+    text-decoration: none;
+    padding: 10px 10px;
+    text-align: center;
+}
+#accountInfo{
+  width: 50%;
+  text-align: left;
+}
+
+#copyright{
+    color: darkgreen;
+}
+#logOut{
+  color: gold;
+  background-color: darkgreen;
+  text-decoration: none;
+  font-weight: bold;
+  position:absolute;
+  top: 450px;
+  right: 1210px;
+  padding: 10px 20px;
+  width: 200px;
+  height: 50px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border: 1px solid black;
+
+}
+#favTable td{
+  border: none;
+  width: 33%;
+  padding: 5px;
+  float: left;
+}
+#navPic{
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-left: 15px;
+  float: right;
+  object-fit: contain;
+  border-radius: 50%;
+  position: relative;
+  visibility: visible;
+  top: -5px;
+}
+#navLogOut{
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+}
+#navLogOut:hover{
+  background-color: darkgreen;
+  color:black;
+}
+#userPic{
+  height: 200px;
+  width: auto;
+}
+
+.frame-container{
+  margin-left: 4%;
+}

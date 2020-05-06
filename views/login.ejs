@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='en'>
+
+
+  <head>
+
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+    <title>Login</title>
+  </head>
+
+  <body class = 'login'>
+    <%- include ('./navbar'); -%>
+      <main>
+        <h3>Sign In</h3>
+          <div class = 'formWrapper'>
+            <% if(session.errors){ %>
+              <p class = 'error'>Either username or password are incorrect. Please try again.</p>
+              <% } %>
+            <!-- This form allows the user to login if they have registered-->
+              <form method='POST' action='/login'>
+                  <label for = 'username'>Username:</label>
+                  <input type = 'text' id = 'username' name = 'username' value = '<%= user.username %>'><br><br>
+                  <label for = 'password'>Password:</label>
+                  <input type = 'password' id = 'password' name = 'password' value = '<%= user.password %>'><br><br>
+                  <input type = 'submit' name = 'submit'>
+                  <p>Don't have an account? Register <a href = 'register'>here.</a></p>
+              </form>
+          </div>
+      </main>
+      <% delete session['errors']; %>
+      <%- include ('./footer'); -%>
+  </body>
+</h3>

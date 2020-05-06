@@ -1,0 +1,37 @@
+
+<header>
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card" id="myNavbar">
+      <a href="/#home" class="w3-bar-item w3-button w3-wide"><img src="../assets/images/minermunchies.png" id="logo" alt="logo"></a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-medium" style="padding: 14px 14px;font-size: medium;">
+        <a href="/" id="homeLink" class="w3-bar-item w3-button<%if(locals.originalUrl=='/'){%> active"<%}else{%>"<%}%>> Home </a>
+        <a href="./restaurants" id="restaurantLink" class="w3-bar-item w3-button<%if(locals.originalUrl=='/restaurants'){%> active"<%}else{%>"<%}%>> Restaurants </a>
+        <a href="./vending" id="vendingLink" class="w3-bar-item w3-button<%if(locals.originalUrl=='/vending'){%> active"<%}else{%>"<%}%>> Vending </a>
+        <a href="./map" id="mapLink" class="w3-bar-item w3-button<%if(locals.originalUrl=='/map'){%> active"<%}else{%>"<%}%>> Map </a>
+
+
+        <!--Login/Register functionalities  -->
+        <% if(!(session.user)){ %>
+        <a href="./login"  id="loginLink" class="w3-bar-item w3-button<%if(locals.originalUrl=='/login'){%> active"<%}else{%>"<%}%>> Login </a>
+        <a href="./register"  class="w3-bar-item w3-button<%if(locals.originalUrl=='/register'){%> active"<%}else{%>"<%}%>> Register </a>
+        <% } else { %>
+        <a href="./favorites" id='favoritesLink' class="w3-bar-item w3-button<%if(locals.originalUrl=='/favorites'){%> active"<%}else{%>"<%}%>> Favorites </a>
+        <!-- Profile link shows the user's username and profile picture-->
+        <a href="./account" id='profileLink' class = "capital w3-bar-item w3-button<%if(locals.originalUrl=='/account'){%> active"<%}else{%>"<%}%>>
+          <img src = './../assets/images/NormNav.png' id = 'navPic' alt='norm'><%= session.user.username %>
+        </a>
+        <form method = 'post' action="/logout">
+          <input type='submit' value='Log Out' id='navLogOut'>
+        </form>
+      <% } %>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<br>

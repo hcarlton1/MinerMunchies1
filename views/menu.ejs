@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Miner Munchies</title>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+    <script src="./../assets/scripts/jquery.min.js"></script>
+  <!-- new push was needed to locate the stylesheet folder !-->
+    <script src="./../assets/scripts/script.js"></script>
+
+</head>
+
+<body>
+  <%- include ('./navbar'); -%>
+    <article>
+<!-- This h3 displays the current resturant's name-->
+<h3><%= session.restaurant._name %></h3>
+<h4 class='center'><%= session.restaurant._location%></h4>
+<a href = '<%= session.restaurant._link %>'>Menu not loading? Click here for external site.</a>
+<section>
+  <!-- Shows the current resturant's menu by setting src equal to current restaurant's menu link-->
+<iframe src="<%= session.restaurant._link %>" style="height:80rem; width: 100%;" scrolling="no"></iframe>
+</section>
+
+
+    </article>
+<%- include ('./footer'); -%>
+
+
+
+</body>
+
+</html>

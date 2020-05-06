@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+
+  <head>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+    <title><%= session.user.username %>'s Profile</title>
+  </head>
+
+  <body>
+    <%- include ('./navbar'); -%>
+    <main>
+      <!-- This h3 will display the current user's username -->
+      <h3 class = 'capital'><%=session.user.username %></h3>
+        <div id='accountInfo'>
+          <img src = './../assets/images/Norm.png' id = 'userPic' alt='norm'>
+          <!-- These h2s will display the current user's full name and email -->
+            <h2><strong>Full Name: </strong><%= session.user.firstName %> <%= session.user.lastName %></h2>
+            <h2><strong>Email: </strong><%= session.user.email %></h2>
+          </h3>
+
+        </div>
+      </main>
+      <!-- This button will log the user out -->
+      <form method='POST' action='/logout'>
+        <input type='submit' id = 'logOut' name ='submit' value='Log Out'>
+      </form>
+
+      <%- include ('./footer'); -%>
+  </body>
+</html>

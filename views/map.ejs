@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+      <title>Campus Map</title>
+  </head>
+
+    <%- include ('./navbar'); -%>
+      <main>
+          <h3>
+              Campus Map
+          </h3>
+          <!-- Copied directly from the uncc page-->
+      <div class="frame-container">
+
+        <iframe class="embed-responsive-item" frameborder="0" style="width: 1333px;height: 700px;" scrolling="no" allow="geolocation" src="https://maps.uncc.edu/#/?nav=PLDbs&amp;ctr=35.30809,-80.73270000000002&amp;z=17&amp;blnd=t,outage&amp;vis=t,dcs-rest&amp;vis=f,trans-lrs&amp;navFlt=dcs-coffee,dcs-convenience,dcs-rest"></iframe>
+
+      </div>
+
+      </main>
+      <%- include ('./footer'); -%>
+  </body>
+</html>

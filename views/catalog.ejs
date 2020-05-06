@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+  <link href='./../assets/stylesheets/project.css' rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type="text/css"/>
+    <script src="./../assets/scripts/jquery.min.js"></script>
+    <script src="./../assets/scripts/script.js"></script>
+<!-- Adding a commit to push to gitLab!-->
+</head>
+
+<body>
+  <%- include ('./navbar'); -%>
+  <article>
+
+      <div class="w3-container">
+          <!-- Category page for 2 items !-->
+          <div class="category">
+                <b>Categories: </b>
+                <select name="itemCategory" id="itemCategory" onchange="return selCategory(this.value);">
+                    <option value="">All</option>
+                    <option value="1">Fast Food - Chicken </option>
+                    <option value="2">Fast Food - Burgers, Chicken, Salads</option>
+                    <option value="3">Fast Food - Mexican, American Chinese, Acai Bowls </option>
+                    <option value="4">Coffee/Bakery</option>
+                    <option value="5">Pizza</option>
+                    <option value="6">Sandwich</option>
+                </select>
+          </div>
+      </div>
+
+      <!-- 4 items per category !-->
+      <!-- Fast Food - Chicken  !-->
+      <section>
+        <div class="row">
+        <%for(let i = 0; i < session.restaurants.length; i++) {%>
+            <div class="column item<%=session.restaurants[i]._category%>">
+            <a href="/menu?restaurant=<%=session.restaurants[i]._name%>"> <img src="<%= session.restaurants[i]._image %>"></a>
+          <div class="producttitle"><%= session.restaurants[i]._name %></div>
+          <div class="producttitle"><%= session.restaurants[i]._location %></div>
+          <div class="productprice">
+            <div class="pull-right">
+              <!-- This button will take the user to the menu-->
+              <form method = 'post' action="/menuButton">
+                <input type='submit' value='Menu' class="btn btn-danger btn-sm">
+                <input type='hidden' name ='name' value="<%=session.restaurants[i]._name%>">
+              </form>
+              <!-- This button will take the user to the reviews-->
+              <form method = 'post' action="/reviewsButton">
+                <input type='submit' value='Reviews' class="btn btn-danger btn-sm">
+                <input type='hidden' name ='name' value='<%=session.restaurants[i]._name%>'>
+              </form>
+              <!-- This button will take the user to the add review form-->
+              <form method = 'post' action="/reviewButton">
+                <input type='submit' value='Add Review' class="btn btn-danger btn-sm">
+                <input type='hidden' name ='name' value='<%=session.restaurants[i]._name%>'>
+              </form>
+                <!-- This button will add a favorite when clicked-->
+                <form method="post" action="/favoriteButton">
+                  <input type="submit" value="Add Favorite" class="btn btn-danger btn-sm">
+                  <input type="hidden" name="name" value="<%=session.restaurants[i]._name%>">
+                </form>
+            </div>  </div>  </div>
+          <% } %>
+          </div></div>
+      </section>
+
+  </article>
+    <%- include ('./footer'); -%>
+</body>
+
+</html>

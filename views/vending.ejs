@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <link href='./../assets/stylesheets/project.css' rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type="text/css"/>
+    <script src="./../assets/scripts/jquery.min.js"></script>
+    <script src="./../assets/scripts/vendingScript.js"></script>
+    <title>Vending</title>
+  </head>
+
+  <body>
+    <%- include ('./navbar'); -%>
+    <main>
+        <h3>Vending
+        </h3>
+
+        <div class="w3-container">
+            <!-- Category page for 2 items !-->
+            <div class="category">
+                  <b>Buildings: </b>
+                  <select name="itemCategory" id="itemCategory" onchange="return selCategory(this.value);">
+                    <option value="">None</option>
+                    <option value="All">All</option>
+                    <% var buildings = [];
+                    for(let i = 0; i < session.machines.length; i++){
+                        if(!(buildings.includes(session.machines[i].building))){
+                          buildings.push(session.machines[i].building);
+                        }
+                      }for(let i = 0; i < buildings.length; i++){%>
+                      <option value="<%=i+1%>"><%=buildings[i]%></option>
+                      <%}%>
+                  </select>
+            </div>
+        </div>
+          <img src = './../assets/images/vendingMap.png' alt='norm' id = 'vendMap'>
+
+        <section class = 'vendingTables'>
+            <%for(let i = 0; i < buildings.length; i++){%>
+
+              <div class="vendTableContainer item<%=i+1%>">
+            <p class='center'><strong><%= buildings[i] %></strong></p>
+            <table><tr>
+              <th>Floor</th>
+              <th>Location</th>
+              <th>Options</th>
+            </tr>
+            <%for(let j = 0; j < session.machines.length; j++){
+              if(session.machines[j].building == buildings[i]){%>
+            <tr>
+              <td><%= session.machines[j]._floor %></td>
+              <td><%= session.machines[j]._room %></td>
+              <td><%= session.machines[j]._type %></td>
+            </tr>
+            <% }}%> </table></div> <%} %>
+          </section>
+
+      </main>
+
+      <%- include ('./footer'); -%>
+  </body>
+</html>

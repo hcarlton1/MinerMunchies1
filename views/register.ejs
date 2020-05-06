@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang='en'>
+
+  <head>
+    <link href="./../assets/stylesheets/w3.css" rel='stylesheet'  type="text/css"/>
+    <link href="./../assets/stylesheets/bootstrap.min.css" rel='stylesheet'  type="text/css"/>
+    <link href='./../assets/stylesheets/capstone.css' rel='stylesheet'  type='text/css'/>
+    <title>Register</title>
+  </head>
+
+  <body class = 'register'>
+    <%- include ('./navbar'); -%>
+      <main>
+        <h3>Register</h3>
+          <div class = 'formWrapper'>
+            <% if(session.errors){
+              var params = [];
+              for(let i = 0; i < session.errors.length; i++){
+                if((!(params.includes(session.errors[i].param))) && session.errors[i].msg == 'Invalid value'){
+                  params.push(session.errors[i].param);
+                }
+                else if(session.errors[i].msg == 'Already in use'){
+                  switch(session.errors[i].param){
+                    case 'email':%>
+                    <p class = 'error'>Email address already in use.</p>
+                    <% break; case 'username':%>
+                    <p class = 'error'>Username already in use.</p>
+                    <%break;
+                  }
+                }
+              }
+              for(let i = 0; i < params.length; i++){
+                switch(params[i]){
+                  case 'password':%>
+                  <p class = 'error'>Invalid password. Password must be at least eight characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
+                  <% break; case 'email':%>
+                  <p class = 'error'>Email address must be a valid uncc email.</p>
+                  <% break; case 'username':%>
+                  <p class = 'error'>Username invalid or already in use. Username must be at least six characters and may only contain letters and numbers.</p>
+                  <% break; case 'firstName':%>
+                  <p class = 'error'>Invalid first name. First name may only contain letters and spaces.</p>
+                  <% break; case 'lastName':%>
+                  <p class = 'error'>Invalid last name. Last name may only contain letters, spaces, and hyphens.</p>
+                  <% break; case 'city':%>
+                  <p class = 'error'>Invalid city. City may only contain letters and spaces.</p>
+                  <%break;}%>
+              <% }} %>
+            <!-- This form allows the user to register-->
+              <form method='POST' action='/register'>
+                  <label for = 'email'>Email:</label>
+                  <input type = 'email' placeholder = 'youremail@uncc.edu' name = 'email' value = '<%= user.email %>' required><br><br>
+                  <label for = 'username'>Username:</label>
+                  <input type = 'text' placeholder = 'Username' name = 'username' value = '<%= user.username %>' required><br><br>
+                  <label for = 'firstName'>First Name:</label>
+                  <input type = 'text' placeholder = 'First Name' name = 'firstName' value = '<%= user.firstName %>' required><br><br>
+                  <label for = 'lastName'>Last Name:</label>
+                  <input type = 'text' placeholder = 'Last Name' name = 'lastName' value = '<%= user.lastName %>' required><br><br>
+                  <label for = 'password'>Password:</label>
+                  <input type="password" placeholder = 'Password' name = "password" id="password" value = '<%= user.password %>' required><br><br>
+                  <input type = 'submit' name = 'submit'>
+              </form>
+          </div>
+      </main>
+        <% delete session['errors']; %>
+      <%- include ('./footer'); -%>
+  </body>
+</html>
